@@ -25,5 +25,11 @@ public class Jugador : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         tocandoPiso = true;
+
+        if (collision.gameObject.CompareTag("Obstaculos"))
+        {
+            GameManager.Instance.ShowGameOverScreen();
+            Time.timeScale = 0f;
+        }
     }
 }
